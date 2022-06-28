@@ -6,19 +6,22 @@ server:
 spring:
   application:
     name: e-commerce-admin
+  security:
+    user:
+      name: jjw
+      password: 88888888
   cloud:
     nacos:
       discovery:
         enabled: true
         # server-addr: 192.168.0.54:8848
-        server-addr: 192.168.0.54:8848,192.168.0.54:8858 # Nacos 服务器地址
+        server-addr: 127.0.0.1:8848,127.0.0.1:8858 # Nacos 服务器地址
         namespace: 3471ee14-8415-4f57-be25-36ec3e9eb631
         metadata:
           management:
             context-path: ${server.servlet.context-path}/actuator
-  thymeleaf:
-    check-template: false
-    check-template-location: false
+          user.name: jjw
+          user.password: 88888888
 
 # 暴露端点
 management:
