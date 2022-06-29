@@ -1,11 +1,11 @@
 package com.jjw.ecommerce.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -15,13 +15,11 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "t_ecommerce_user")
+@TableName(value = "t_ecommerce_user")
 public class EcommerceUser {
-    /**
-     * 自增
-     */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    /** 自增ID */
+    @TableId(value = "id" ,type = IdType.AUTO)
     private Long id;
 
     /**
@@ -37,18 +35,18 @@ public class EcommerceUser {
     /**
      * 额外的信息
      */
-    @Column(name = "extra_info")
+    @TableField(value = "extra_info")
     private String extraInfo;
 
     /**
      * 创建时间
      */
-    @Column(name = "create_time")
+    @TableField(value = "create_time",fill = FieldFill.INSERT)
     private Date createTime;
 
     /**
      * 修改时间
      */
-    @Column(name = "update_time")
+    @TableField(value = "update_time",fill = FieldFill.UPDATE)
     private Date updateTime;
 }
