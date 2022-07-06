@@ -93,8 +93,8 @@ public class JWTServiceImpl implements IJWTService {
         queryWrapper.eq("password", usernameAndPassword.getPassword());
 
         EcommerceUser oldUser = this.iEcommerceUserService.getOne(queryWrapper);
-        if (null == oldUser) {
-            log.error("username is registered: [{}]", usernameAndPassword.getUsername(), usernameAndPassword.getPassword());
+        if (null != oldUser) {
+            log.error("username is registered: [{}]", usernameAndPassword.getUsername());
             return null;
         }
 
